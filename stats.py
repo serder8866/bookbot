@@ -29,5 +29,25 @@ def count_char(text: str) -> dict:
             dic[char] = 1
     return dic
 
+def sort_dict(dictionary: dict) -> list:
+    """
+    Turns a dictionary into a sorted list of dictionaries, sorted by the values of the initial dictionary.
+    
+    Args: A dictionary.
+    
+    Returns: A sorted list of dictionaries each with 2 key-value pairs.
+    """
+    separate_pairs = []
+    for key in dictionary:
+        key_val = {}
+        if key.isalpha():
+            key_val["character"] = key
+            key_val["count"] = dictionary[key]
+            separate_pairs.append(key_val)
+        else:
+            pass 
+    separate_pairs.sort(reverse=True, key=lambda item: item["count"])
+    return separate_pairs
+
 if __name__ == "__main__":
     main()
